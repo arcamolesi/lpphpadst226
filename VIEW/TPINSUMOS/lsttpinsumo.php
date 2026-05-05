@@ -1,9 +1,13 @@
 <?php 
-   include_once "conexao.php"; 
+
+
+  
+   include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/DAL/conexao.php";
+
    $sql = "Select * from tipoinsumo;";
-   $con = Conexao::conectar(); 
+   $con = DAL\Conexao::conectar(); 
    $registros = $con->query($sql);  
-   $con = Conexao::desconectar(); 
+   $con = DAL\Conexao::desconectar(); 
 ?>
    
 
