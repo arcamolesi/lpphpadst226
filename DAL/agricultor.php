@@ -28,6 +28,20 @@
           return $lstAgricultor; 
        }
 
+       public function Insert(\MODEL\Agricultor $agricultor)
+   {
+      $sql = "INSERT INTO agricultor (nome, cidade, bairro, idade)
+           VALUES ('{$agricultor->getNome()}', '{$agricultor->getCidade()}', '{$agricultor->getBairro()}', '{$agricultor->getIdade()}');";
+
+      $con = Conexao::conectar();
+      $result = $con->query($sql);
+      $con = Conexao::desconectar();
+
+      echo $result->errorCode();
+
+      return $result;
+   }
+
 
    }
 
