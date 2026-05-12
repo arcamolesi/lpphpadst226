@@ -1,34 +1,63 @@
 <?php
 
-   namespace DAL; 
+namespace DAL;
 
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/DAL/conexao.php";
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/MODEL/agricultor.php";  
+include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/DAL/conexao.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/MODEL/agricultor.php";
 
-   class Agricultor{
-       
-       public function Select() {
+class Agricultor
+{
 
-          $sql = "Select * from agricultor;";
-          $con = Conexao::conectar(); 
-          $registros = $con->query($sql);  
-          $con = Conexao::desconectar(); 
+   public function Select()
+   {
 
-          foreach ($registros as $linha){
-              $agricultor = new \MODEL\Agricultor();
-              $agricultor->setId($linha['id']); 
-              $agricultor->setNome($linha['nome']); 
-              $agricultor->setBairro($linha['bairro']); 
-              $agricultor->setCidade($linha['cidade']);  
-              $agricultor->setIdade($linha['idade']);
-              
-              $lstAgricultor[] = $agricultor; 
-          }
+      $sql = "Select * from agricultor;";
+      $con = Conexao::conectar();
+      $registros = $con->query($sql);
+      $con = Conexao::desconectar();
 
-          return $lstAgricultor; 
-       }
+      foreach ($registros as $linha) {
+         $agricultor = new \MODEL\Agricultor();
+         $agricultor->setId($linha['id']);
+         $agricultor->setNome($linha['nome']);
+         $agricultor->setBairro($linha['bairro']);
+         $agricultor->setCidade($linha['cidade']);
+         $agricultor->setIdade($linha['idade']);
 
-       public function Insert(\MODEL\Agricultor $agricultor)
+         $lstAgricultor[] = $agricultor;
+      }
+
+      return $lstAgricultor;
+   }
+
+
+   public function SelectById(int $id)
+   {
+
+      $sql = "Select * from agricultor where id=?;";
+      $con = Conexao::conectar();
+      $query = $con->prepare($sql);
+      $query->execute(array($id));
+      $linha = $query->fetch(\PDO::FETCH_ASSOC);
+      $con = Conexao::desconectar();
+
+      $agricultor = new \MODEL\Agricultor();
+      $agricultor->setId($linha['id']);
+      $agricultor->setNome($linha['nome']);
+      $agricultor->setBairro($linha['bairro']);
+      $agricultor->setCidade($linha['cidade']);
+      $agricultor->setIdade($linha['idade']);
+
+      return  $agricultor;
+   }
+
+
+
+
+
+
+
+   public function Insert(\MODEL\Agricultor $agricultor)
    {
       $sql = "INSERT INTO agricultor (nome, cidade, bairro, idade)
            VALUES ('{$agricultor->getNome()}', '{$agricultor->getCidade()}', '{$agricultor->getBairro()}', '{$agricultor->getIdade()}');";
@@ -43,8 +72,17 @@
    }
 
 
+   public function Update(\MODEL\Agricultor $agricultor)
+   {
+      $sql = "UPDATE agricultor SET nome = ?, cidade = ?, bairro = ?, idade = ? WHERE id = ?;";
+
+      $con = Conexao::conectar();
+      $query = $con->prepare($sql);
+      $result = $query->execute(array($agricultor->getNome(), $agricultor->getCidade(), $agricultor->getBairro(), $agricultor->getIdade(), $agricultor->getId()));
+      $con = Conexao::desconectar();
+
+     // echo $result->errorCode();
+
+      return $result;
    }
-
-
-
-?>
+}
