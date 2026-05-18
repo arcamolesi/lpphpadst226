@@ -85,4 +85,21 @@ class Agricultor
 
       return $result;
    }
+
+   public function Delete(int $id)
+   {
+      $sql = "Delete from agricultor WHERE id = ?;";
+
+      $con = Conexao::conectar();
+      $query = $con->prepare($sql);
+      $result = $query->execute(array($id));
+      $con = Conexao::desconectar();
+
+     // echo $result->errorCode();
+
+      return $result;
+   }
+
+
+
 }

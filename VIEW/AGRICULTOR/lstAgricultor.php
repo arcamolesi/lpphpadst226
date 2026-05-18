@@ -65,6 +65,15 @@ $lstAgricultor = $dalAgricultor->Select();
                                 onclick="JavaScript:location.href='frmedtagricultor.php?id='+ '<?php echo $agricultor->getID(); ?>'">edit</i>
                         </a>
 
+                        <a class="btn-floating btn-small waves-effect blue">
+                            <i class="material-icons"
+                                onclick="JavaScript:location.href='frmdetagricultor.php?id= ' + '<?php echo $agricultor->getID(); ?>'">details</i>
+                        </a>
+
+                        <a class="btn-floating btn-small waves-effect red">
+                            <i class="material-icons"
+                                onclick="JavaScript: remover( <?php echo $agricultor->getId(); ?> )">delete</i>
+                        </a>
 
                     </td>
                 </tr>
@@ -76,3 +85,11 @@ $lstAgricultor = $dalAgricultor->Select();
 </body>
 
 </html>
+
+<script>
+    function remover(id) {
+        if (confirm('Excluir Agricultor ' + id + '?')) {
+            location.href = 'opremagricultor.php?id=' + id;
+        }
+    }
+</script>
