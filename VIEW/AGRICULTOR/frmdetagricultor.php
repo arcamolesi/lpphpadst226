@@ -5,6 +5,7 @@ $id = $_GET['id'];
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/DAL/agricultor.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/MODEL/agricultor.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/VIEW/menu.php";
 
 use DAL\Agricultor;
 
