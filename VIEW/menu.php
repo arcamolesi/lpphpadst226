@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['login']))
+    header("Location: /lpphpadst226/view/index.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,6 +45,8 @@
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/lpphpadst226/view/home.php">HOME</a></li>
                 <li><a href="/lpphpadst226/view/agricultor/lstAgricultor.php">AGRICULTOR</a></li>
+                <li><a href="/lpphpadst226/view/logout.php">Logout</a></li>
+                <li style="font-weight: bold; color: teal lighten-3">Usuário: <?php echo $_SESSION['login'];?></li>
             </ul>
 
             <ul id="slide-out" class="sidenav light-blue darken-3 white-text">
