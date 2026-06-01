@@ -5,6 +5,8 @@ namespace DAL;
 include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/DAL/conexao.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/lpphpadst226/MODEL/agricultor.php";
 
+
+
 class Agricultor
 {
 
@@ -52,11 +54,6 @@ class Agricultor
    }
 
 
-
-
-
-
-
    public function Insert(\MODEL\Agricultor $agricultor)
    {
       $sql = "INSERT INTO agricultor (nome, cidade, bairro, idade)
@@ -81,7 +78,7 @@ class Agricultor
       $result = $query->execute(array($agricultor->getNome(), $agricultor->getCidade(), $agricultor->getBairro(), $agricultor->getIdade(), $agricultor->getId()));
       $con = Conexao::desconectar();
 
-     // echo $result->errorCode();
+      // echo $result->errorCode();
 
       return $result;
    }
@@ -95,11 +92,8 @@ class Agricultor
       $result = $query->execute(array($id));
       $con = Conexao::desconectar();
 
-     // echo $result->errorCode();
+      // echo $result->errorCode();
 
       return $result;
    }
-
-
-
 }

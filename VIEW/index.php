@@ -21,16 +21,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/lpphpadst226/view/css/style.css">
 </head>
 
 <body>
 
-    <div class="had-container">
+    <div class="had-container  teal lighten-4">
 
         <div class="parallax-container logueo">
-            <div class="parallax"><img src="/lpphpadst226/images/logoagro.jpeg"></div>
-            <div class="row"><br>
+
+            <div class="row">
                 <div class="col m8 s8 offset-m2 offset-s2 center">
                     <h4 class="truncate bg-card-user">
                         <img src="/lpphpadst226/images/logoagro.jpeg" alt="" class="circle responsive-img">
@@ -54,10 +54,16 @@
                                 <div class="row">
                                     <button class="btn waves-effect waves-light" type="submit" name="action">Acessar</button>
                                 </div>
+
                             </form>
+
                         </div>
+                        <br>
+                        <br>
                     </h4>
+                    
                 </div>
+                
             </div>
         </div>
     </div>
@@ -76,7 +82,8 @@
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="mySpxript.js"></script>
+    <script src="/lpphpadst226/view/js/init.js"></script>
+    <script src="/lpphpadst226/view/js/mySpxript.js"></script>
 </body>
 
 </html>

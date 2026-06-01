@@ -29,7 +29,7 @@ if (!isset($_SESSION['login']))
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="./js/init.js"></script>
+    <script src="/lpphpadst226/view/js/init.js"></script>
 
     <title>Página MENU</title>
 </head>
@@ -45,6 +45,7 @@ if (!isset($_SESSION['login']))
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/lpphpadst226/view/home.php">HOME</a></li>
                 <li><a href="/lpphpadst226/view/agricultor/lstAgricultor.php">AGRICULTOR</a></li>
+                <li><a href="/lpphpadst226/view/areaplantio/lstplantio.php">PLANTIO</a></li>
                 <li><a href="/lpphpadst226/view/logout.php">Logout</a></li>
                 <li style="font-weight: bold; color: teal lighten-3">Usuário: <?php echo $_SESSION['login'];?></li>
             </ul>
